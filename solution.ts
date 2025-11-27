@@ -85,3 +85,28 @@ interface Book {
 const printBookDetails = (param: Book): void => {
     console.log(`Title: ${param.title}, Author: ${param.author}, Published: ${param.publishedYear}, Available: ${param.isAvailable ? "Yes" : "No"}`)
 }
+
+
+
+
+
+type Unic = Array<string | number>
+
+const getUniqueValues = (param1: Unic, param2: Unic ) => {
+
+    const combindArr: Unic = [...param1, ...param2]
+    const unicArr: Unic = []
+    const unicObj: Record<string, boolean> = {}
+
+    for(let i = 0; i < combindArr.length; i++){
+        const stringKey = String(combindArr[i])
+
+        if(!unicObj[stringKey]){
+            unicObj[stringKey] = true
+            unicArr.push(combindArr[i])
+        }
+    }
+
+    return unicArr;
+
+}
