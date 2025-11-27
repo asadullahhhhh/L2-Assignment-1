@@ -110,3 +110,31 @@ const getUniqueValues = (param1: Unic, param2: Unic ): Unic => {
     return unicArr;
 
 }
+
+
+
+
+
+type Product = {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+}
+
+const calculateTotalPrice = (param: Product[]): number => {
+    if(param.length === 0) return 0
+
+    return param.map(item => {
+        let subTotal = item.price * item.quantity
+
+        if(item.discount !== undefined) {
+            let discountPrice = (subTotal * item.discount) / 100
+            return subTotal - discountPrice
+        }
+
+        return subTotal
+    }).reduce((acc, curr) => {
+        return acc + curr 
+    }, 0)
+}
