@@ -92,7 +92,7 @@ const printBookDetails = (param: Book): void => {
 
 type Unic = Array<string | number>
 
-const getUniqueValues = (param1: Unic, param2: Unic ) => {
+const getUniqueValues = (param1: Unic, param2: Unic ): Unic => {
 
     const combindArr: Unic = [...param1, ...param2]
     const unicArr: Unic = []
@@ -103,7 +103,7 @@ const getUniqueValues = (param1: Unic, param2: Unic ) => {
 
         if(!unicObj[stringKey]){
             unicObj[stringKey] = true
-            unicArr.push(combindArr[i])
+            unicArr[unicArr.length] = combindArr[i]
         }
     }
 
